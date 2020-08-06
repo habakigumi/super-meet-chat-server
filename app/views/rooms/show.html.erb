@@ -1,5 +1,5 @@
 <h1><%= @room.key %></h1>
-<message :url="'<%= room_url(@room.id, format: :json) %>'" :room-key="'<%= @room.key %>'">
+<message :url="'<%= room_url(@room.key, format: :json) %>'" :room-key="'<%= @room.key %>'">
 <% @messages.each do |msg| %>
   <div class="message message-<%= msg.super_chat_type %>">
     <p class="message__sender"><%= msg.sender %></p>

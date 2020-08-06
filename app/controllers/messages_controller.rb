@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   protect_from_forgery :except => [:create]
+
   def create
-    room = Room.find(params[:room_id])
+    room = Room.find_or_create_by!(key: params[:room_key])
     if (msg = room.messages.create(message_params))
       ActionCable.server.broadcast("room_#{room.key}",
                                    body: {

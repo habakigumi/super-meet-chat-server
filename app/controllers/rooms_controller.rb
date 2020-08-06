@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.includes(:messages).find(params[:id])
+    @room = Room.includes(:messages).find_by!(key: params[:key])
     @messages = @room.messages
   end
 end
