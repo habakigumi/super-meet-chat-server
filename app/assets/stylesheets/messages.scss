@@ -1,0 +1,51 @@
+// Place all the styles related to the Messages controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.super_chat {
+  color: white;
+  display: flex;
+  margin: 6px 0;
+  padding: 0 8px;
+  flex-direction: column;
+  border-radius: 8px;
+
+  .message__sender {
+    display: flex;
+    padding: 12px 8px;
+    margin: 0 -8px;
+    color: white;
+    line-height: 1;
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+.message {
+
+  &-blue {
+    @extend .super_chat;
+    background: darkblue;
+  }
+  &-red {
+    @extend .super_chat;
+    background: #e53935; //darken-1
+    .message__sender {
+      background-color: #d50000; //accent-4
+    }
+  }
+
+  &__sender {
+    display: inline-block;
+    font-size: 14px;
+    color: darkgray;
+  }
+
+  &__value {
+    display: inline-block;
+  }
+
+  &__text {
+    display: inline-block;
+    line-height: 1;
+  }
+}

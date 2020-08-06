@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>疑似スパチャ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'hello_vue' %>
+    <%= stylesheet_pack_tag 'hello_vue' %>
+  </head>
+
+  <body>
+    <div id="app">
+      <%= yield %>
+    </div>
+  </body>
+</html>
