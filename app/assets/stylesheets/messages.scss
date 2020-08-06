@@ -21,6 +21,9 @@
     margin: 0 -10px;
     padding: 4px 10px 12px;
     line-height: 1;
+    &:last-child {
+      border-radius: 0 0 6px 6px;
+    }
   }
 }
 
@@ -129,7 +132,7 @@
 
   &-red {
     @extend .super_chat;
-    $header-color: rgba(230,33,23,1);
+    $header-color: rgba(208,0,0,1);
     $text-color: rgba(255,255,255,1);
     background: rgba(230,33,23,1);
     color: $text-color;
