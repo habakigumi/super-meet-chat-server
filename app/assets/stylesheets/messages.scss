@@ -3,41 +3,150 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .super_chat {
-  color: white;
   display: flex;
   margin: 6px 0;
-  padding: 0 8px;
+  padding: 0 10px;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: 6px;
 
   .message__sender {
     display: flex;
-    padding: 12px 8px;
-    margin: 0 -8px;
-    color: white;
+    padding: 12px 12px 4px;
+    margin: 0 -10px;
     line-height: 1;
-    border-radius: 8px 8px 0 0;
+    border-radius: 6px 6px 0 0;
   }
+
+  .message__value {
+    margin: 0 -10px;
+    padding: 4px 10px 12px;
+    line-height: 1;
+  }
+}
+
+.messages {
+  overflow-y: scroll;
+  max-height: 98vh;
 }
 
 .message {
 
   &-blue {
     @extend .super_chat;
-    background: darkblue;
+    $header-color: rgba(21,101,192,1);
+    $text-color: rgba(255,255,255,1);
+    background: rgba(30,136,229,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(255,255,255,0.7019607843137254);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
   }
+
+  &-light_blue {
+    @extend .super_chat;
+    $header-color: rgba(0,184,212,1);
+    $text-color: rgba(0,0,0,1);
+    background: rgba(0,229,255,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(0,0,0,0.7019607843137254);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
+  }
+
+  &-yellow_green {
+    @extend .super_chat;
+    $header-color: rgba(0,191,165,1);
+    $text-color: rgba(0,0,0,1);
+    background: rgba(29,233,182,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(0,0,0,0.5411764705882353);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
+  }
+
+  &-yellow {
+    @extend .super_chat;
+    $header-color: rgba(255,179,0,1);
+    $text-color: rgba(0,0,0,0.8745098039215686);
+    background: rgba(255,202,40,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(0,0,0,0.5411764705882353);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
+  }
+
+  &-orange {
+    @extend .super_chat;
+    $header-color: rgba(230,81,0,1);
+    $text-color: rgba(255,255,255,0.8745098039215686);
+    background: rgba(245,124,0,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(255,255,255,0.7019607843137254);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
+  }
+
+  &-pink {
+    @extend .super_chat;
+    $header-color: rgba(194,24,91,1);
+    $text-color: rgba(255,255,255,1);
+    background: rgba(233,30,99,1);
+    color: $text-color;
+    .message__sender {
+      background-color: $header-color;
+      color: rgba(255,255,255,0.7019607843137254);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
+    }
+  }
+
   &-red {
     @extend .super_chat;
-    background: #e53935; //darken-1
+    $header-color: rgba(230,33,23,1);
+    $text-color: rgba(255,255,255,1);
+    background: rgba(230,33,23,1);
+    color: $text-color;
     .message__sender {
-      background-color: #d50000; //accent-4
+      background-color: $header-color;
+      color: rgba(255,255,255,0.7019607843137254);
+    }
+    .message__value {
+      background-color: $header-color;
+      color: $text-color;
     }
   }
 
   &__sender {
     display: inline-block;
     font-size: 14px;
-    color: darkgray;
+    color: rgba(17, 17, 17, 0.6);
   }
 
   &__value {

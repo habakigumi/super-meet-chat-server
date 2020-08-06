@@ -4,14 +4,7 @@ class MessagesController < ApplicationController
   def create
     room = Room.find_or_create_by!(key: params[:room_key])
     if (msg = room.messages.create(message_params))
-      ActionCable.server.broadcast("room_#{room.key}",
-                                   body: {
-                                       id: msg.id,
-                                       sender: msg.sender,
-                                       value: msg.value,
-                                       text: msg.text,
-                                       super_chat_type: msg.super_chat_type
-                                   }.to_json)
+      broadcast_message room, msg
       render json: { result: 'OK' }
     else
       render json: { result: 'error', status: :bad_request, params: params }
@@ -25,5 +18,16 @@ class MessagesController < ApplicationController
         :sender,
         :text
     )
+  end
+
+  def broadcast_message(room, msg)
+    ActionCable.server.broadcast("room_#{room.key}",
+                                 body: {
+                                     id: msg.id,
+                                     sender: msg.sender,
+                                     value: msg.value,
+                                     text: msg.text,
+                                     super_chat_type: msg.super_chat_type
+                                 }.to_json)
   end
 end

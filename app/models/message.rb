@@ -4,8 +4,6 @@ class Message < ApplicationRecord
   before_save :set_super_chat
   before_save :un_super_chat!
 
-  #after_create :stream_message
-
   enum super_chat_type: {
       normal: 0,
       blue: 10,
@@ -50,16 +48,5 @@ class Message < ApplicationRecord
         self.super_chat_type = :red
       end
     end
-  end
-
-  def stream_message
-    ActionCable.server.broadcast("room_#{room.key}",
-                                 body: {
-                                     id: id,
-                                     sender: sender,
-                                     value: value,
-                                     text: text,
-                                     super_chat_type: super_chat_type
-                                 }.to_json)
   end
 end

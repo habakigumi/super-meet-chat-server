@@ -1,8 +1,10 @@
-<h1><%= @room.key %></h1>
 <message :url="'<%= room_url(@room.key, format: :json) %>'" :room-key="'<%= @room.key %>'">
 <% @messages.each do |msg| %>
   <div class="message message-<%= msg.super_chat_type %>">
     <p class="message__sender"><%= msg.sender %></p>
+    <% if msg.super_chat_type != :normal %>
+    <p class="message__value"><%= "¥" + msg.value.to_s(:delimited) %></p>
+    <% end %>
     <p class="message__text"><%= msg.text %></p>
   </div>
 <% end %>
