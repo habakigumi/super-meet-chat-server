@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_184722) do
+ActiveRecord::Schema.define(version: 2020_08_07_032819) do
 
   create_table "messages", force: :cascade do |t|
     t.string "sender"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_184722) do
     t.integer "super_chat_type", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "value", default: 0
+    t.bigint "value", default: 0
     t.index ["room_id"], name: "index_messages_on_room_id"
   end
 

@@ -2,6 +2,10 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+  background-color: #444444;
+}
+
 .super_chat {
   display: flex;
   margin: 6px 0;
@@ -30,6 +34,13 @@
 .messages {
   overflow-y: scroll;
   max-height: 98vh;
+
+  font-weight: 500;
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display:none;
+  }
 }
 
 .message {
@@ -149,7 +160,8 @@
   &__sender {
     display: inline-block;
     font-size: 14px;
-    color: rgba(17, 17, 17, 0.6);
+    /* color: rgba(17, 17, 17, 0.6); */
+    color: rgba(217, 217, 217, 0.6);
   }
 
   &__value {
@@ -159,5 +171,7 @@
   &__text {
     display: inline-block;
     line-height: 1;
+    color: white;
   }
+
 }
