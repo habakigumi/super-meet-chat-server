@@ -17,7 +17,7 @@ class Message < ApplicationRecord
 
   private
   def super_chat_value_str
-    if self.text =~ /\A.*(¥[0-9,]+).*/
+    if self.text =~ /\A.*([¥￥][0-9,]+).*/
       $1
     else
       nil
