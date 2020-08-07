@@ -1,6 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :room
 
+  before_save :convert_to_half_nums
   before_save :set_super_chat
   before_save :un_super_chat!
 
@@ -48,5 +49,9 @@ class Message < ApplicationRecord
         self.super_chat_type = :red
       end
     end
+  end
+
+  def convert_to_half_nums
+    self.text = self.text.tr('０-９￥', '0-9¥')
   end
 end
